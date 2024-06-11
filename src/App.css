@@ -2,67 +2,91 @@
 
 * {
   font-family: "Poppins", sans-serif;
-  color: #1e0342;
+  color: aliceblue;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
 }
 
+input {
+  background-color: transparent;
+  color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+.btn:hover {
+  box-shadow: 0.1rem 0.1rem 0.2rem whitesmoke;
+}
+
 .bg-custom-clr1 {
-  background-color: #002d62 !important;
+  background-color: #a6a6a6 !important;
 }
 .bg-custom-clr2 {
   background-color: #008080 !important;
 }
 .bg-custom-clr3 {
-  background-color: #9ac8cd !important;
+  background-color: #1b1c1b !important;
 }
 .bg-custom-clr4 {
-  background-color: #aff2ec !important;
+  background-color: #444444 !important;
 }
 .bg-custom-clr5 {
-  background-color: #ffffff !important;
+  background-color: #a6a6a6 !important;
 }
 
 .text-custom-clr1 {
-  color: #1e0342 !important;
+  color: aliceblue !important;
 }
 .text-custom-clr2 {
   color: #0e46a3 !important;
 }
 .text-custom-clr3 {
-  color: #9ac8cd !important;
+  color: #a6a6a6 !important;
 }
-.test-custom-clr4 {
-  color: #e1f7f5 !important;
+.text-custom-clr4 {
+  color: black !important;
 }
 
 /* Navbar */
 .navbar-nav a:hover {
-  color: #1e0342;
-  /* text-shadow: 0.5px 0.5px #e1f7f5; */
-  font-size: 1.1rem;
-  font-weight: bold;
+  text-shadow: 0.4px 0.4px #e1f7f5;
+  font-size: 1rem;
 }
 
 .active {
-  color: #0e46a3;
-  text-shadow: 0.7px 0.7px #e1f7f5;
   font-size: 1.1rem;
   font-weight: bold;
 }
 
-/* Carousal */
-div.carousel-inner {
-  /* height: 20rem; */
+/* .loginLink {
+  height: 100%;
   width: 100%;
+} */
+
+/* Carousal */
+div.carousel-item {
+  height: 100%;
 }
 
-div.carousel-inner img {
-  object-fit: contain;
-  position: relative;
-  bottom: 20rem;
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 /* Properties */
@@ -75,8 +99,7 @@ div.propertyouter {
 }
 
 div.propertyinner {
-  /* width: 100%; */
-  height: 17rem;
+  height: 19rem;
   margin: 1.5rem 0;
 }
 
@@ -84,7 +107,6 @@ div.propertyItem {
   width: 100%;
   height: 100%;
   border-radius: 1rem;
-  /* border: 0.3rem solid rgb(255, 0, 0); */
 }
 
 div.img {
@@ -93,16 +115,23 @@ div.img {
 
 div.img img {
   width: 100%;
-  height: 16.9rem;
+  height: 20rem;
   object-fit: cover;
+  object-position: center;
   /* border-radius: 1rem 0 0 1rem; */
   border-radius: 1rem;
+}
+
+.contentheading {
+  /* font-size: 1.3rem; */
+  font-weight: 600;
 }
 
 div.details {
   border-radius: 0 1rem 1rem 0;
   width: 60%;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 300;
   padding: 2rem;
 }
 
@@ -119,11 +148,118 @@ div.modelBox {
   background-color: #0000004f;
 }
 
+/* login */
+div.loginouter {
+  background: linear-gradient(to bottom right, #616161, black);
+  height: 100vh;
+  z-index: -2;
+  align-items: center;
+}
+
+div.loginbox {
+  background-color: rgba(0, 0, 0, 26%);
+  box-shadow: 5px 5px 100px rgba(255, 255, 255, 29%);
+  border-radius: 2rem;
+  height: 25rem;
+  width: 25rem;
+  padding: 2.5rem 1.5rem;
+}
+
+div.login h3 {
+  text-align: center;
+}
+
+.loginbox input:focus-visible {
+  box-shadow: none;
+  background: transparent;
+}
+
+.loginbox input {
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+div.login {
+  width: 100%;
+}
+
+#exampleInputEmail1 {
+  border-bottom: 1px solid white;
+}
+
+.loginform {
+  padding-top: 2rem;
+}
+
+div.pswd {
+  border-bottom: 1px solid white;
+}
+
+input.pswd {
+  width: 92%;
+}
+
+i {
+  font-size: 1.3rem;
+}
+
+.formbtn {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.transperent {
+  background: transparent;
+}
+
+/* Sign up  */
+div.signupouter {
+  background: linear-gradient(to bottom right, #616161, black);
+  height: 100vh;
+  align-items: center;
+}
+
+div.signupbox {
+  background-color: rgba(0, 0, 0, 26%);
+  box-shadow: 5px 5px 100px rgba(255, 255, 255, 29%);
+
+  border-radius: 2rem;
+  height: fit-content;
+  width: 25rem;
+  /* text-align: center; */
+  padding: 2.5rem 1.5rem;
+}
+
+.signupbox input:focus-visible {
+  box-shadow: none;
+  background: transparent;
+}
+
+div.signup h3 {
+  text-align: center;
+}
+
+.signupbox input:focus-visible {
+  box-shadow: none;
+}
+
+.signupbox input {
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+#name,
+#contactNumber {
+  border-bottom: 1px solid white;
+}
+
 /* Smartphone */
 @media screen and (max-width: 700px) {
+  /* Property */
   div.propertyinner {
-    /* width: 100%; */
-    height: 20rem;
+    height: 25rem;
     margin: 1.5rem 0;
   }
 
@@ -146,5 +282,11 @@ div.modelBox {
     width: 100%;
     font-size: 1rem;
     padding: 2rem;
+  }
+
+  /* Login */
+  div.loginouter {
+    align-items: start;
+    padding-top: 2.5rem;
   }
 }

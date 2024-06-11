@@ -2,9 +2,14 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const loggedin = localStorage.getItem("authtoken") ? true : false;
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary bg-custom-clr3 ">
+      <nav
+        className="navbar navbar-expand-lg  bg-body-tertiary bg-custom-clr3 "
+        data-bs-theme="dark"
+      >
         <div className="container-fluid text-custom-clr1">
           <button
             className="navbar-toggler"
@@ -36,7 +41,7 @@ const Navbar = () => {
               <NavLink className="nav-link" aria-current="page" to="/villa">
                 Villa
               </NavLink>
-              <NavLink className="nav-link" aria-current="page" to="plot">
+              <NavLink className="nav-link" aria-current="page" to="/plot">
                 Plot
               </NavLink>
               <NavLink
@@ -49,15 +54,22 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button
+          {/* <button
             type="button"
             className="btn bg-custom-clr1"
-            style={{ color: "white" }}
+            style={{ color: "white", display: loggedin ? "none" : "block" }}
           >
-            <NavLink className="test-custom-clr4" to="/login">
+            <NavLink className="text-custom-clr4" to="/login">
               Log in
             </NavLink>
-          </button>
+          </button> */}
+
+          <NavLink
+            className="btn bg-custom-clr1 loginLink text-custom-clr4"
+            to="/login"
+          >
+            Log out
+          </NavLink>
         </div>
       </nav>
     </div>

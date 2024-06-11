@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Propertyitem from "./Propertyitem";
 import Spinner from "./Spinner";
+import Navbar from "./Navbar";
+import Carousal from "./Carousal";
 
 const Properties = (props) => {
+  const authtoken = localStorage.getItem("authtoken");
+
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const updateProperties = async () => {
     try {
+      if (!authtoken) {
+        window.location.href = "/login";
+      }
       setLoading(true);
       let url = `${process.env.REACT_APP_BACKEND_URL}/property/query?purpose=${
         props.purpose || "PG"
@@ -16,8 +23,7 @@ const Properties = (props) => {
       let response = await fetch(url, {
         method: "GET",
         headers: {
-          authtoken:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjYyYTA5MzcwNDU5ZTU4YmJhYjFlY2Y1In0sImlhdCI6MTcxNzgzNDQ0M30.NHln-Mp8qjfJROrPchwwq3O5rGdMgd1A1u1IfkE4mrE",
+          authtoken: authtoken,
         },
       });
       if (!response.ok) {
@@ -38,32 +44,37 @@ const Properties = (props) => {
   }, [props.purpose]);
 
   return (
-    <div className="properties bg-custom-clr5 d-flex flex-column align-items-center">
-      <h2>Properties {props.purpose}</h2>
-      {loading ? (
-        <Spinner />
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <div className="propertyouter d-flex flex-column">
-          {properties.length === 0 ? (
-            <p>No properties found.</p>
-          ) : (
-            properties.map((element) => (
-              <div className="propertyinner " key={element._id}>
-                <Propertyitem
-                  img={element.photos}
-                  address={element.address}
-                  area={element.propertyArea}
-                  price={element.price}
-                  pid={element._id}
-                />
-              </div>
-            ))
-          )}
-        </div>
-      )}
-    </div>
+    <>
+      <header>
+        <Navbar />
+      </header>
+      <Carousal
+        height="20rem"
+        url1="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
+        url2="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
+        url3="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
+        url4="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
+      />
+      <div className="properties bg-custom-clr5 d-flex flex-column align-items-center">
+        {loading ? (
+          <Spinner />
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <div className="propertyouter d-flex flex-column">
+            {properties.length === 0 ? (
+              <p>No properties found.</p>
+            ) : (
+              properties.map((element) => (
+                <div className="propertyinner " key={element._id}>
+                  <Propertyitem data={element} />
+                </div>
+              ))
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

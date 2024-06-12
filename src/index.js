@@ -25,7 +25,6 @@ const router = createBrowserRouter(
       <Route path="/commercial" element={<Properties purpose="COMMERCIAL" />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      {/* <Route path="/pdetails/query" element={<PropertyDetails />} /> */}
     </Route>
   )
 );

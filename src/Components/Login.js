@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [hide, setHide] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,7 +24,7 @@ const Login = () => {
   const email = document.getElementById("exampleInputEmail1");
   const pass = document.getElementById("exampleInputPassword1");
 
-  // Validator
+  // Validation
   const validate = (email, pass) => {
     if (email.value === "") {
       alert("Enter the email address");
@@ -40,10 +42,10 @@ const Login = () => {
   const sendRequest = async (email, pass) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/user/login`;
 
-    const formdata = new FormData();
-    formdata.append("email", email.value);
-    formdata.append("password", pass.value);
-    const loginData = new URLSearchParams(formdata);
+    const formData = new FormData();
+    formData.append("email", email.value);
+    formData.append("password", pass.value);
+    const loginData = new URLSearchParams(formData);
 
     const responce = await fetch(url, {
       method: "POST",
@@ -54,7 +56,7 @@ const Login = () => {
     if (parsedResponce.success === true) {
       alert(parsedResponce.message);
       localStorage.setItem("authtoken", parsedResponce.authtoken);
-      window.location.href = "/";
+      navigate("/");
     } else if (parsedResponce.success === false) {
       alert(parsedResponce.message);
       email.value = "";
@@ -101,7 +103,7 @@ const Login = () => {
                     type="email"
                     className="form-control transperent"
                     id="exampleInputEmail1"
-                    autoComplete="current-usename"
+                    autoComplete="current-email"
                     style={{ color: "white" }}
                   />
                 </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const loggedin = localStorage.getItem("authtoken") ? true : false;
 
   return (
@@ -54,19 +54,18 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* <button
-            type="button"
-            className="btn bg-custom-clr1"
-            style={{ color: "white", display: loggedin ? "none" : "block" }}
+          <NavLink
+            className="btn bg-custom-clr1 text-custom-clr4"
+            to="/login"
+            style={{ display: loggedin ? "none" : "block" }}
           >
-            <NavLink className="text-custom-clr4" to="/login">
-              Log in
-            </NavLink>
-          </button> */}
+            Log in
+          </NavLink>
 
           <NavLink
             className="btn bg-custom-clr1 loginLink text-custom-clr4"
             to="/login"
+            style={{ display: loggedin ? "block" : "none" }}
           >
             Log out
           </NavLink>

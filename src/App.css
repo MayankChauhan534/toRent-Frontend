@@ -74,6 +74,14 @@ input:-webkit-autofill:focus {
 }
 
 /* Carousal */
+#carouselAutoplaying {
+  height: 20rem;
+}
+
+div.carousal-inner {
+  height: 100%;
+}
+
 div.carousel-item {
   height: 100%;
 }
@@ -82,6 +90,7 @@ div.carousel-item {
   object-fit: cover;
   height: 100%;
   width: 100%;
+  filter: brightness(85%);
 }
 
 /* Properties */
@@ -113,12 +122,10 @@ div.img img {
   height: 20rem;
   object-fit: cover;
   object-position: center;
-  /* border-radius: 1rem 0 0 1rem; */
   border-radius: 1rem;
 }
 
 .contentheading {
-  /* font-size: 1.3rem; */
   font-weight: 600;
 }
 
@@ -135,12 +142,50 @@ div.details {
   box-shadow: none;
 }
 
+div#propertyModal {
+  width: 100vw;
+}
+
 div.modelBox {
-  /* height: 80vh; */
-  padding: 2rem 0;
-  color: white;
-  backdrop-filter: blur(5px);
-  background-color: #0000004f;
+  padding: 1rem 0.5rem;
+  backdrop-filter: blur(15px);
+  background-color: #0d0d0d73;
+}
+
+div.images {
+  height: 35rem;
+  width: 90%;
+}
+
+div.imagesInner {
+  height: 50%;
+}
+
+div.propertyImg {
+  width: 100%;
+  height: 100%;
+}
+
+div.propertyImg img {
+  height: 95%;
+  width: 95%;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+
+div.propertyDetailsOuter {
+  width: 90%;
+  margin: 1rem;
+}
+
+div.propertyDetailsInner {
+  margin: 2rem;
+}
+
+div.details1 {
+  width: 30%;
+  border-right: 2px solid white;
 }
 
 /* login */
@@ -222,7 +267,6 @@ div.signupbox {
   border-radius: 2rem;
   height: fit-content;
   width: 25rem;
-  /* text-align: center; */
   padding: 2.5rem 1.5rem;
 }
 
@@ -252,9 +296,14 @@ div.signup h3 {
 
 /* Smartphone */
 @media screen and (max-width: 700px) {
+  /* Carousal */
+  #carouselAutoplaying {
+    height: 15rem;
+  }
+
   /* Property */
   div.propertyinner {
-    height: 25rem;
+    height: fit-content;
     margin: 1.5rem 0;
   }
 
@@ -267,7 +316,6 @@ div.signup h3 {
   }
 
   div.img img {
-    /* width: 100%; */
     height: 9rem;
     object-fit: cover;
     border-radius: 1rem;
@@ -277,6 +325,34 @@ div.signup h3 {
     width: 100%;
     font-size: 1rem;
     padding: 2rem;
+  }
+
+  /* Property Details */
+  div.propertyDetailsOuter {
+    flex-direction: column-reverse;
+    margin: 0.5rem;
+  }
+
+  div.propertyDetailsInner {
+    margin: 0.5rem;
+  }
+
+  div.details1 {
+    width: 100%;
+    border-right: none;
+  }
+
+  div.images {
+    flex-direction: column;
+    height: 54rem;
+  }
+
+  div.imagesInner {
+    flex-direction: column;
+  }
+
+  div.propertyImg {
+    height: 50%;
   }
 
   /* Login */

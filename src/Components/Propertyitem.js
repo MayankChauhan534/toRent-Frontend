@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropertyDetails from "./PropertyDetails";
 
@@ -22,7 +22,7 @@ const Propertyitem = (props) => {
           <div className="img d-flex justify-content-center align-items-center">
             <img
               src={`${process.env.REACT_APP_BACKEND_URL}/${photos[0]}`}
-              alt="Can't load the image"
+              alt="Can't load the"
             />
           </div>
           <div className="details d-flex flex-column justify-content-evenly">

@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Properties from "./Components/Properties";
-import PropertyDetails from "./Components/PropertyDetails";
 
 import {
   createBrowserRouter,

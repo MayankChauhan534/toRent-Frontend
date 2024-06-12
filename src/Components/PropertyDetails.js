@@ -43,8 +43,8 @@ const PropertyDetails = (props) => {
                   ></button>
                 </div>
 
-                <div className="detailsBody">
-                  <Carousal
+                <div className="detailsBody d-flex flex-column align-items-center">
+                  {/* <Carousal
                     height="30rem"
                     url1={
                       photos[0]
@@ -66,26 +66,59 @@ const PropertyDetails = (props) => {
                         ? `${process.env.REACT_APP_BACKEND_URL}/${photos[3]}`
                         : ""
                     }
-                  />
-                </div>
-                <div>
-                  <p>
-                    <b>Address: </b>
-                  </p>
-                  <p>{address}</p>
-                </div>
-                <div>
-                  {propertyArea && (
-                    <p>
-                      <b>Carpet Area:</b> {propertyArea} sqrft
-                    </p>
-                  )}
-                  <p>
-                    <b>Price:</b> {price} Rs
-                  </p>
-                  <p>
-                    <b>Contact Number:</b> {contactNumber} Rs
-                  </p>
+                  /> */}
+
+                  <div className="images d-flex flex-column">
+                    <div className="imagesInner d-flex">
+                      <div className="propertyImg">
+                        <img
+                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[0]}`}
+                          alt=""
+                        />
+                      </div>
+                      <div className="propertyImg">
+                        <img
+                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[1]}`}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div className="imagesInner d-flex">
+                      <div className="propertyImg">
+                        <img
+                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[2]}`}
+                          alt=""
+                        />
+                      </div>
+                      <div className="propertyImg">
+                        <img
+                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[3]}`}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="propertyDetailsOuter d-flex">
+                    <div className="propertyDetailsInner details1">
+                      {propertyArea && (
+                        <p>
+                          <b>Carpet Area:</b> {propertyArea} sqrft
+                        </p>
+                      )}
+                      <p>
+                        <b>Price:</b> {price} Rs
+                      </p>
+                      <p>
+                        <b>Contact Number:</b> {contactNumber}
+                      </p>
+                    </div>
+                    <div className="propertyDetailsInner ">
+                      <p>
+                        <b>Address: </b>
+                      </p>
+                      <p>{address}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -11,6 +11,13 @@ const Properties = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const getUser = async () => {
+    const url = `${process.env.REACT_APP_BACKEND_URL}/user/getuser?id=`;
+    const response = await fetch(url);
+    const user = await response.json();
+    console.log(user);
+  };
+
   const updateProperties = async () => {
     try {
       if (!authtoken) {
@@ -41,19 +48,20 @@ const Properties = (props) => {
 
   useEffect(() => {
     updateProperties();
+    // getUser();
+    // eslint-disable-next-line
   }, [props.purpose]);
 
   return (
     <>
       <header>
-        <Navbar />
+        <Navbar username="name" />
       </header>
       <Carousal
-        height="20rem"
-        url1="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
-        url2="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
-        url3="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
-        url4="https://c1.wallpaperflare.com/preview/901/623/722/render-graphic-architecture-3d.jpg"
+        url1={`${process.env.PUBLIC_URL}/Images/Image1.jpg`}
+        url2={`${process.env.PUBLIC_URL}/Images/Image2.jpg`}
+        url3={`${process.env.PUBLIC_URL}/Images/Image3.jpg`}
+        url4={`${process.env.PUBLIC_URL}/Images/Image4.png`}
       />
       <div className="properties bg-custom-clr5 d-flex flex-column align-items-center">
         {loading ? (

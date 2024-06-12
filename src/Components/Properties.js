@@ -11,13 +11,6 @@ const Properties = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const getUser = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/user/getuser?id=`;
-    const response = await fetch(url);
-    const user = await response.json();
-    console.log(user);
-  };
-
   const updateProperties = async () => {
     try {
       if (!authtoken) {
@@ -48,7 +41,6 @@ const Properties = (props) => {
 
   useEffect(() => {
     updateProperties();
-    // getUser();
     // eslint-disable-next-line
   }, [props.purpose]);
 

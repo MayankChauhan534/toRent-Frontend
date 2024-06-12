@@ -224,7 +224,6 @@ const Signup = () => {
                     maxLength={"10"}
                     className="form-control transperent"
                     id="contactNumber"
-                    // maxLength="10"
                     autoComplete="current-cnumber"
                     style={{ color: "white" }}
                   />

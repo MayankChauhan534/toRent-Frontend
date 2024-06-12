@@ -4,10 +4,6 @@ import PropertyDetails from "./PropertyDetails";
 
 const Propertyitem = (props) => {
   const [clicked, setClicked] = useState(false);
-  // const [pdetails, setPdetails] = useState([]);
-  // const [data, setData] = useState([]);
-
-  // const url = `${process.env.REACT_APP_BACKEND_URL}/property/query?id=${props.pid}`;
 
   const handleclick = () => {
     setClicked(true);

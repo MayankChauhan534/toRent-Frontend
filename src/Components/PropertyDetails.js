@@ -1,5 +1,3 @@
-import Carousal from "./Carousal";
-
 const PropertyDetails = (props) => {
   const {
     photos = [],
@@ -44,30 +42,6 @@ const PropertyDetails = (props) => {
                 </div>
 
                 <div className="detailsBody d-flex flex-column align-items-center">
-                  {/* <Carousal
-                    height="30rem"
-                    url1={
-                      photos[0]
-                        ? `${process.env.REACT_APP_BACKEND_URL}/${photos[0]}`
-                        : ""
-                    }
-                    url2={
-                      photos[1]
-                        ? `${process.env.REACT_APP_BACKEND_URL}/${photos[1]}`
-                        : ""
-                    }
-                    url3={
-                      photos[2]
-                        ? `${process.env.REACT_APP_BACKEND_URL}/${photos[2]}`
-                        : ""
-                    }
-                    url4={
-                      photos[3]
-                        ? `${process.env.REACT_APP_BACKEND_URL}/${photos[3]}`
-                        : ""
-                    }
-                  /> */}
-
                   <div className="images d-flex flex-column">
                     <div className="imagesInner d-flex">
                       <div className="propertyImg">

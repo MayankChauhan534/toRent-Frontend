@@ -16,7 +16,7 @@ import Signup from "./Components/Signup";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/toRent-Frontend" element={<App />}>
+    <Route exact path="/toRent-Frontend" element={<App />}>
       <Route index element={<Properties />} />
       <Route path="/pg" element={<Properties purpose="PG" />} />
       <Route path="/flat" element={<Properties purpose="FLAT" />} />

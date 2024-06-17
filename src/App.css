@@ -296,6 +296,19 @@ div.signup h3 {
 
 /* Smartphone */
 @media screen and (max-width: 700px) {
+  /* Navbar */
+  .siteName {
+    position: absolute;
+    left: 11rem;
+    top: 0.55rem;
+  }
+
+  .loginLink {
+    position: absolute;
+    left: 20rem;
+    top: 0.6rem;
+  }
+
   /* Carousal */
   #carouselAutoplaying {
     height: 15rem;

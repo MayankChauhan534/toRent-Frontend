@@ -23,7 +23,7 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <Link
-            className="navbar-brand text-custom-clr1"
+            className="navbar-brand siteName text-custom-clr1"
             style={{ fontWeight: "bold", fontSize: "1.4rem" }}
             to="/"
           >
@@ -55,7 +55,7 @@ const Navbar = () => {
           </div>
 
           <NavLink
-            className="btn bg-custom-clr1 text-custom-clr4"
+            className="btn bg-custom-clr1 loginLink text-custom-clr4"
             to="/login"
             style={{ display: loggedin ? "none" : "block" }}
           >

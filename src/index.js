@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
+import PropertyDetails from "./Components/PropertyDetails";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="/commercial" element={<Properties purpose="COMMERCIAL" />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/propertydetail" element={<PropertyDetails />} />
     </Route>
   )
 );

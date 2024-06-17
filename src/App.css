@@ -3,6 +3,8 @@
 * {
   font-family: "Poppins", sans-serif;
   color: aliceblue;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -137,19 +139,18 @@ div.details {
   padding: 2rem;
 }
 
-/* Project Details */
+/* Property Details */
 .nav-link:focus-visible {
   box-shadow: none;
 }
 
-div#propertyModal {
-  width: 100vw;
+div.modelBox {
+  padding: 1rem 0 0 0;
+  height: 100%;
 }
 
-div.modelBox {
-  padding: 1rem 0.5rem;
-  backdrop-filter: blur(15px);
-  background-color: #0d0d0d73;
+div.modelboxInner {
+  height: 100%;
 }
 
 div.images {
@@ -176,11 +177,10 @@ div.propertyImg img {
 
 div.propertyDetailsOuter {
   width: 90%;
-  margin: 1rem;
 }
 
 div.propertyDetailsInner {
-  margin: 2rem;
+  margin: 2rem 2rem 1rem;
 }
 
 div.details1 {

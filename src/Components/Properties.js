@@ -47,7 +47,7 @@ const Properties = (props) => {
   return (
     <>
       <header>
-        <Navbar username="name" />
+        <Navbar />
       </header>
       <Carousal
         url1={`${process.env.PUBLIC_URL}/Images/Image1.jpg`}

@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import PropertyDetails from "./PropertyDetails";
 
 const Propertyitem = (props) => {
-  const [clicked, setClicked] = useState(false);
-  // const [pdetails, setPdetails] = useState([]);
-  // const [data, setData] = useState([]);
-
-  // const url = `${process.env.REACT_APP_BACKEND_URL}/property/query?id=${props.pid}`;
+  const { _id, photos, address, propertyArea, price } = props.data;
 
   const handleclick = () => {
-    setClicked(true);
+    localStorage.setItem("id", _id);
   };
-  const data = props.data;
-  const { photos, address, propertyArea, price } = props.data;
 
   return (
     <>
@@ -44,18 +37,15 @@ const Propertyitem = (props) => {
             <div>
               <Link
                 className="btn bg-custom-clr1 text-custom-clr4"
-                to=""
                 onMouseDown={handleclick}
-                data-bs-toggle="modal"
-                data-bs-target="#propertyModal"
-                role="button"
+                to="/propertydetail"
+                target="_blank"
               >
                 View Details
               </Link>
             </div>
           </div>
         </div>
-        {clicked && <PropertyDetails data={data} />}
       </div>
     </>
   );

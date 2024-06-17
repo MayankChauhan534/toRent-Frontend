@@ -1,75 +1,80 @@
-const PropertyDetails = (props) => {
-  const {
-    photos = [],
-    address,
-    propertyArea,
-    price,
-    contactNumber,
-  } = props.data;
+import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
+
+const PropertyDetails = () => {
+  const [pdetails, setPdetails] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  const id = localStorage.getItem("id");
+
+  const getProperty = async () => {
+    try {
+      const url = `${process.env.REACT_APP_BACKEND_URL}/property/query?propertyid=${id}`;
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          authtoken: localStorage.getItem("authtoken"),
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const parsedData = await response.json();
+      setPdetails(parsedData[0]);
+    } catch (error) {
+      console.error("Error fetching property details:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getProperty();
+    // eslint-disable-next-line
+  }, []);
+
+  const { photos = [], address, propertyArea, price, contactNumber } = pdetails;
 
   return (
     <>
       <div>
-        {!photos ? (
-          <p>
-            <b>No data avilable</b>
-          </p>
+        {loading ? (
+          <Spinner />
         ) : (
           <div
-            className="modal fade"
-            id="propertyModal"
+            className="bg-custom-clr4"
+            id="propertyDetail"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div className="modal-dialog modal-dialog-centered modal-xl">
-              <div className="modelBox modal-content d-flex flex-column">
-                <div className="projectModelHead d-flex align-iems-center">
-                  <div
-                    className="projectModalLabel d-flex align-items-center justify-content-center"
-                    style={{ width: "98%" }}
-                  >
-                    <h3 className="" id="projectModalLabel">
-                      Property Details
-                    </h3>
-                  </div>
-                  <button
-                    type="button"
-                    className="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
+            <div className="">
+              <div className="modelBox d-flex flex-column">
+                <div className=" d-flex align-iems-center"></div>
 
-                <div className="detailsBody d-flex flex-column align-items-center">
+                <div className="modelboxInner  d-flex flex-column align-items-center">
                   <div className="images d-flex flex-column">
                     <div className="imagesInner d-flex">
-                      <div className="propertyImg">
-                        <img
-                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[0]}`}
-                          alt=""
-                        />
-                      </div>
-                      <div className="propertyImg">
-                        <img
-                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[1]}`}
-                          alt=""
-                        />
-                      </div>
+                      {photos.slice(0, 2).map((photo, index) => (
+                        <div className="propertyImg" key={index}>
+                          <img
+                            src={`${process.env.REACT_APP_BACKEND_URL}/${photo}`}
+                            alt=""
+                          />
+                        </div>
+                      ))}
                     </div>
                     <div className="imagesInner d-flex">
-                      <div className="propertyImg">
-                        <img
-                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[2]}`}
-                          alt=""
-                        />
-                      </div>
-                      <div className="propertyImg">
-                        <img
-                          src={`${process.env.REACT_APP_BACKEND_URL}/${photos[3]}`}
-                          alt=""
-                        />
-                      </div>
+                      {photos.slice(2, 4).map((photo, index) => (
+                        <div className="propertyImg" key={index}>
+                          <img
+                            src={`${process.env.REACT_APP_BACKEND_URL}/${photo}`}
+                            alt=""
+                          />
+                        </div>
+                      ))}
                     </div>
                   </div>
                   <div className="propertyDetailsOuter d-flex">
@@ -86,7 +91,7 @@ const PropertyDetails = (props) => {
                         <b>Contact Number:</b> {contactNumber}
                       </p>
                     </div>
-                    <div className="propertyDetailsInner ">
+                    <div className="propertyDetailsInner">
                       <p>
                         <b>Address: </b>
                       </p>

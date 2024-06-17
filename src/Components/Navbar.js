@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = (props) => {
+const Navbar = () => {
   const loggedin = localStorage.getItem("authtoken") ? true : false;
 
   return (

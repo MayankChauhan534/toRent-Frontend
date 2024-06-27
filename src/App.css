@@ -144,6 +144,15 @@ div.details {
   box-shadow: none;
 }
 
+div#propertyDetail::before {
+  content: "";
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: #444444 !important;
+  z-index: -1;
+}
+
 div.modelBox {
   padding: 1rem 0 0 0;
   height: 100%;
@@ -151,6 +160,7 @@ div.modelBox {
 
 div.modelboxInner {
   height: 100%;
+  padding: 1.3rem 0rem;
 }
 
 div.images {
